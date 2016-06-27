@@ -209,6 +209,14 @@ sFilter ID."
     (fogbugz-list-search-results
      (fogbugz-search))))
 
+(defun fogbugz-select-filter-my-prioriy ()
+  (interactive)
+    (message "%s" fogbugz-filter-list)
+    (fogbugz-set-current-filter (list 70))
+    (fogbugz-list-search-results
+	    (fogbugz-search)))
+	
+
 (defun fogbugz-get-case-number-under-point ()
   "Check the beginning of the current line for something that
 looks like a numeric case number. Return it when it is found (nil
@@ -339,7 +347,7 @@ E.g. (fogbugz-humanize-attribute-name 'ixBug) ;; => \"bug\""
 (define-key fogbugz-search-results-mode-map (kbd "p") 'previous-line)
 (define-key fogbugz-search-results-mode-map (kbd "w") 'fogbugz-work-on-case-under-point)
 (define-key fogbugz-search-results-mode-map (kbd "s") 'fogbugz-stop-work)
-(define-key fogbugz-search-results-mode-map (kbd "RET") 'fogbugz-open-case-under-point)
+(define-key fogbugz-search-results-mode-map (kbd "M-f i") 'fogbugz-open-case-under-point)
 
 (define-derived-mode fogbugz-case-details-mode fogbugz-search-results-mode "fbz-case"
   "Fogbugz case details mode
